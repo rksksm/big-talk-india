@@ -1,0 +1,94 @@
+{% extends "base.html"%}
+{% load staticfiles %}
+
+{% block content %}
+
+<script type="text/javascript">
+$(document).ready(function(){
+  $('#alert').hide();
+    Materialize.toast('Searching'+b, 4000);
+  });
+
+
+
+  function search() {
+
+    b=$('input').val();
+
+    a='http://127.0.0.1:8000/search/'
+    c=a+b
+    document.location.href=c
+    Materialize.toast('Searching'+b, 4000)
+  }
+
+</script>
+
+<center><h1 style="font-family: rishabh; color: seagreen; margin-top: 100px; " >Big Talk Search</h1></center>
+<div class="row">
+    <div class="col s12">
+      <div class="row">
+        <div class="input-field col s12 m12 l12">
+          <i class="material-icons prefix">textsms</i>
+          <input type="text" id="search" class="autocomplete">
+          <label for="autocomplete-input">Search News</label>
+          <center><button onclick="search();" class="btn waves-effect waves-light" type="submit" name="action">Search 
+    <i class="material-icons right">send</i>
+  </button></center>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+    <div id="cards" class="col s12">
+    {% if message == "" %}
+     {% for j in section %}
+            {% for i in card %}
+              <!-- {% if i.section_id == j.id and i.top == "Normal" %} -->
+                <div class="col s12 m6 l4">
+                  <div class="card" onClick="document.location.href='http://192.168.1.4:8000/news/{{i.title|safe|escape}}'" style="color:{{i.font_color}};background-color:{{i.background_color}};height:400px;">
+                    <div class="card-image">
+                      <img style="height: 200px; width: 100%; " src="{% static 'uploads/' %}{{i.image}}">
+                      
+
+                      
+                    </div>
+                    <span class="card-title" style="font-size: 16px;  "><b>{{i.title|safe|escape}}</b></span>
+                    <div class="card-content" style="padding: 2px;">
+                      <p style="font-size: 13px;">
+                        {{i.intro_text|safe|escape}}
+                        <a style="color:  {{i.font_color}};">
+                          <br>
+                          <u style="font-size: 12px; ">Read more...</u>
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              <!-- {% endif %} -->
+            {% endfor %}
+      {% endfor %}
+      {% endif %}
+      {% if message != "" %}
+          <center><h4 id="alert" style="font-family: rishabh; ">No matches found !!!</h4></center>
+          <script type="text/javascript">
+            Materialize.toast('Searching'+b, 4000)
+            alert();
+          </script>
+      {% endif %}
+
+</div>
+  </div>      
+  
+ 
+       
+
+{% endblock %}
+
+

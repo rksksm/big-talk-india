@@ -1,0 +1,60 @@
+{% extends "base.html"%}
+{% load staticfiles %}
+
+{% block content %}
+
+<!-- main div start -->
+<div class="row">
+	<!-- left section start -->
+	<div class="col s12 m12 l9">
+
+	{% for j in this_section %}
+		<div class="divider"></div>
+		<div id="{{j.title}}" class="section">
+			<h5>{{j.title}}</h5>
+			<div class="">
+				{% for i in card %}
+					<!-- {% if i.section_id == j.id and i.top == "Normal" %} -->
+						<div class="col s12 m6 l4">
+							<div class="card" onClick="document.location.href='http://127.0.0.1:8000/news/{{i.title|safe|escape}}'" style="color:{{i.font_color}};background-color:{{i.background_color}};height:400px;">
+								<div class="card-image">
+									<img style="height: 200px; width: 100%; " src="{% static 'uploads/' %}{{i.image}}">
+									
+
+									
+								</div>
+								<span class="card-title" style="font-size: 16px;  "><b>{{i.title|safe|escape}}</b></span>
+								<div class="card-content" style="padding: 2px;">
+								  <p style="font-size: 13px;">
+										{{i.intro_text|safe|escape}}
+										<a style="color:  {{i.font_color}};">
+											<br>
+											<u style="font-size: 12px; ">Read more...</u>
+										</a>
+								  </p>
+								</div>
+							</div>
+						</div>
+					<!-- {% endif %} -->
+				{% endfor %}
+			</div>
+		</div>
+	{% endfor %}
+	</div>
+	<!-- left section end -->
+	
+
+	<!-- right section start -->
+	<div class="col s12 m12 l3">
+		<div class="col s12 m12 l12" style="height: 400px; background-color: #f3f3f3; border: solid 1px black; " > <center>Advertisement</center>    </div><br>
+	</div>
+	<!-- right section end -->
+</div>
+<!-- main div end -->
+	
+ 
+			 
+
+{% endblock %}
+
+

@@ -1,0 +1,46 @@
+{% extends "base.html"%}
+{% load staticfiles %}
+
+{% block content %}
+
+<!-- main div start -->
+<div class="row">
+	<!-- left section start -->
+	<div class="col s12 m12 l9">
+	 
+	 <center><h4 class="modal-title" id="myModalLabel">{{card.title|safe}}</h4></center>      
+	 <center><img class="img-fluid" src="{% static 'uploads/' %}{{card.image}}" alt="Card image cap"></center>
+		<center><p id="modal_{{card.id}}" class="card-text">{{card.text|safe|escape}}</p></center>
+        <center><p class="card-text" style="display: inline-block;"><small class="text-muted">Published at : {{card.publish}}</small></p></center>
+        <button id="shareBtn" type="button" class="btn btn-fb"><i class="fa fa-facebook left"></i> Facebook </button>
+<script>
+document.getElementById('shareBtn').onclick = function() {
+  FB.ui({
+    method: 'share',
+    display: 'popup',
+    href: 'http://www.bigtalkindia.com/news/{{card.url}}',
+  }, function(response){});
+}
+</script>
+  
+  <script src="//platform.linkedin.com/in.js" type="text/javascript"> lang: en_US</script>
+<script type="IN/Share" data-url="http://www.bigtalkindia.com/news/{{card.url}}" data-counter="right"></script>
+        
+	</div>
+	<!-- left section end -->
+	
+
+	<!-- right section start -->
+	<div class="col s12 m12 l3">
+		<div class="col s12 m12 l12" style="height: 400px; background-color: #f3f3f3; border: solid 1px black; " > <center>Advertisement</center>    </div><br>
+	</div>
+	<!-- right section end -->
+</div>
+<!-- main div end -->
+	
+ 
+			 
+
+{% endblock %}
+
+

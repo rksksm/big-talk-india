@@ -1,0 +1,178 @@
+{% extends "base.html"%}
+{% load staticfiles %}
+
+{% block content %}
+
+<!-- main div start -->
+<div class="row">
+	<!-- left section start -->
+	<div class="col s12 m9 l9">
+	<div id="top-news" style="background-color: black ">
+		{% for i in card %}
+					{% if i.top == "Top - 1" %}
+						<div class="col s12 m4 l4" style="padding: 0px;">
+							<div class="card" onClick="document.location.href='http://127.0.0.1:8000/news/{{i.url|safe|escape}}'"  style="color:{{i.font_color}};background-color:{{i.background_color}};height:400px;">
+								<div class="card-image">
+									<img style="height: 200px; width: 100%; " src="static/uploads/{{i.image}}">
+									
+								</div>
+								<span class="card-title" style="font-size: 16px;  "><b>{{i.title|safe|escape}}</b></span>
+								<div class="card-content" style="padding: 2px;">
+								  <p style="font-size: 13px;">
+										{{i.intro_text|safe|escape}}
+										<a style="color:  {{i.font_color}};">
+											<br>
+											<u style="font-size: 12px; ">Read more...</u>
+										</a>
+								  </p>
+								</div>
+							</div>
+						</div>
+					{% endif %}
+				{% endfor %}
+
+		{% for i in card %}
+					{% if i.top == "Top - 2" %}
+						<div class="col s12 m4 l4" style="padding: 0px;">
+							<div class="card" onClick="document.location.href='http://127.0.0.1:8000/news/{{i.url|safe|escape}}'"  style="color:{{i.font_color}};background-color:{{i.background_color}};height:400px;">
+								<div class="card-image">
+									<img style="height: 200px; width: 100%; " src="static/uploads/{{i.image}}">
+									
+								</div>
+								<span class="card-title" style="font-size: 16px;  "><b>{{i.title|safe|escape}}</b></span>
+								<div class="card-content" style="padding: 2px;">
+								  <p style="font-size: 13px;">
+										{{i.intro_text|safe|escape}}
+										<a style="color:  {{i.font_color}};">
+											<br>
+											<u style="font-size: 12px; ">Read more...</u>
+										</a>
+								  </p>
+								</div>
+							</div>
+						</div>
+					{% endif %}
+				{% endfor %}
+
+
+	{% for i in card %}
+					{% if i.top == "Top - 3" %}
+						  <div class="col s12 m4 l4" style="padding: 0px" >
+    <div class="card horizontal" onClick="document.location.href='http://127.0.0.1:8000/news/{{i.url|safe|escape}}'" style="color:{{i.font_color}}; background-color: {{i.background_color}}; height: 100px; ">
+      <div class="card-image">
+        <img style="height: 100px; width: 100px;" src="static/uploads/{{i.image}}">
+      </div>
+      <div class="card-stacked">
+        <div class="card-content" style="padding: 0px; margin-left: 10px; ">
+          <p><span style="font-size: 14px;"><b>{{i.title}}</b></span>
+                <a style="color:  {{i.font_color}};"><br><u style="font-size: 12px; ">Read more...</u></a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+					{% endif %}
+				{% endfor %}
+	{% for i in card %}
+					{% if i.top == "Top - 4" %}
+						  <div class="col s12 m4 l4"  style="padding: 0px;margin-top: -23px;"">
+    <div class="card horizontal" onClick="document.location.href='http://127.0.0.1:8000/news/{{i.url|safe|escape}}'" style="color:{{i.font_color}}; background-color: {{i.background_color}}; height: 100px; ">
+      <div class="card-image">
+        <img style="height: 100px; width: 100px;" src="static/uploads/{{i.image}}">
+      </div>
+      <div class="card-stacked">
+        <div class="card-content" style="padding: 0px; margin-left: 10px; ">
+          <p><span style="font-size: 14px;"><b>{{i.title}}</b></span>
+                <a style="color:  {{i.font_color}};"><br><u style="font-size: 12px; ">Read more...</u></a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+					{% endif %}
+				{% endfor %}	{% for i in card %}
+					{% if i.top == "Top - 5" %}
+						  <div class="col s12 m4 l4"  style="padding: 0px;margin-top: -23px;"">
+    <div class="card horizontal" onClick="document.location.href='http://127.0.0.1:8000/news/{{i.url|safe|escape}}'" style="color:{{i.font_color}}; background-color: {{i.background_color}}; height: 100px; ">
+      <div class="card-image">
+        <img style="height: 100px; width: 100px;" src="static/uploads/{{i.image}}">
+      </div>
+      <div class="card-stacked">
+        <div class="card-content" style="padding: 0px; margin-left: 10px; ">
+          <p><span style="font-size: 14px;"><b>{{i.title}}</b></span>
+                <a style="color:  {{i.font_color}};"><br><u style="font-size: 12px; ">Read more...</u></a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+					{% endif %}
+				{% endfor %}
+	{% for i in card %}
+					{% if i.top == "Top - 6" %}
+						  <div class="col s12 m4 l4"  onClick="document.location.href='http://127.0.0.1:8000/news/{{i.url|safe|escape}}'"  style="padding: 0px;margin-top: -21px;"">
+    <div class="card horizontal" style="color:{{i.font_color}}; background-color: {{i.background_color}}; height: 100px; ">
+      <div class="card-image">
+        <img style="height: 100px; width: 100px;" src="static/uploads/{{i.image}}">
+      </div>
+      <div class="card-stacked">
+        <div class="card-content" style="padding: 0px; margin-left: 10px; ">
+          <p><span style="font-size: 14px;"><b>{{i.title}}</b></span>
+                <a style="color:  {{i.font_color}};"><br><u style="font-size: 12px; ">Read more...</u></a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+					{% endif %}
+				{% endfor %}
+	</div>
+
+
+
+
+
+	{% for j in section %}
+		<div class="divider"></div>
+		<div id="{{j.title}}" class="section">
+			<h5>{{j.title}}</h5>
+			<div class="your">
+				{% for i in card %}
+					{% if i.section_id == j.id and i.top == "Normal" %}
+						<div class="col s4 m4 l4">
+							<div class="card" onClick="document.location.href='http://127.0.0.1:8000/news/{{i.url|safe|escape}}'" style="color:{{i.font_color}};background-color:{{i.background_color}};height:400px;">
+								<div class="card-image">
+									<img style="height: 200px; width: 100%; " src="static/uploads/{{i.image}}">
+									
+								</div>
+								<span class="card-title" style="font-size: 16px;  "><b>{{i.title|safe|escape}}</b></span>
+								<div class="card-content" style="padding: 2px;">
+								  <p style="font-size: 13px;">
+										{{i.intro_text|safe|escape}}
+										<a style="color:  {{i.font_color}};">
+											<br>
+											<u style="font-size: 12px; ">Read more...</u>
+										</a>
+								  </p>
+								</div>
+							</div>
+						</div>
+					{% endif %}
+				{% endfor %}
+			</div>
+		</div>
+	{% endfor %}
+	</div>
+	<!-- left section end -->
+	
+
+	<!-- right section start -->
+	<div class="col s12 m3 l3">
+		<div class="col s12 m12 l12" style="height: 400px; background-color: #f3f3f3; border: solid 1px black; " > <center>Advertisement</center>    </div><br>
+	</div>
+	<!-- right section end -->
+</div>
+<!-- main div end -->
+	
+ 
+			 
+
+{% endblock %}
+
+
