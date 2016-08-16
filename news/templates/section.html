@@ -16,7 +16,7 @@
 				{% for i in card %}
 					<!-- {% if i.section_id == j.id and i.top == "Normal" %} -->
 						<div class="col s12 m6 l4">
-							<div class="card" onClick="document.location.href='http://127.0.0.1:8000/news/{{i.title|safe|escape}}'" style="color:{{i.font_color}};background-color:{{i.background_color}};height:400px;">
+							<div class="card" onClick="document.location.href='http://www.bigtalkindia.com/news/{{i.title|safe|escape}}'" style="color:{{i.font_color}};background-color:{{i.background_color}};height:400px;">
 								<div class="card-image">
 									<img style="height: 200px; width: 100%; " src="{% static 'uploads/' %}{{i.image}}">
 									
