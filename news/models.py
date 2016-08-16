@@ -70,7 +70,7 @@ class Card(models.Model):
 	section = models.ForeignKey(Section)
 	top = models.CharField(max_length=50, choices=TOP)
 	title = models.CharField(max_length=200)
-	url = models.CharField(max_length=200)
+	url = models.CharField(max_length=200, unique=True)
 	intro_text = models.CharField(max_length=200)
 	text = models.TextField()
 	image = models.ImageField(upload_to = "card/")
