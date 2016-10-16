@@ -45,12 +45,18 @@
 	</div>
 	<!-- left section end -->
 	
-
-	<!-- right section start -->
-	<div class="col s12 m12 l3">
-		<div class="col s12 m12 l12" style="height: 400px; background-color: #f3f3f3; border: solid 1px black; " > <center>Advertisement</center>    </div><br>
-
-		<div class="col s12 m4 l4" style="padding: 0px" >
+  <!-- right section start -->
+  <div class="col s12 m3 l3">
+    
+    <div class="ads">
+    	{% for ad in adv %}
+    <div class="col s12 m12 l12"> <img class="responsive-img" src="{% static 'uploads/' %}{{ad.image}}"></div>
+    	{% endfor%}
+  	</div>
+    <br>
+      
+          
+    <div class="col s12 m4 l4" style="padding: 0px" >
     {% for j in smalls %}
       <br><h5>{{j.title}}</h5>
       {% for i in small %}
@@ -58,7 +64,7 @@
           
           <div class="card horizontal" onClick="document.location.href='http://www.bigtalkindia.com/news/{{i.url|safe|escape}}'" style="color:{{i.font_color}}; background-color: {{i.background_color}}; cursor: pointer; height: 100px; width: 308px; ">
           <div class="card-image">
-            <img style="height: 100px; width: 100px;" src="static/uploads/{{i.image}}">
+            <img style="height: 100px; width: 100px;" src="{% static 'uploads/' %}{{i.image}}">
           </div>
           <div class="card-stacked">
             <div class="card-content" style="padding: 0px; margin-left: 10px; ">
@@ -73,8 +79,7 @@
 
     {% endfor %}
     </div>
-	</div>
-	<!-- right section end -->
+  <!-- right section end -->
 </div>
 <!-- main div end -->
 	
