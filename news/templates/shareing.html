@@ -3,14 +3,15 @@
 
 {% block content %}
 
+  <script src="{% static "js/pace.min.js"%}"></script>
+  <link rel="stylesheet" type="text/css" href="{% static "css/pace.css" %}"/>
 <!-- main div start -->
 <div class="row">
-	<!-- left section start -->
-	<div class="col s12 m12 l9">
-	 
+<!-- left section start -->
+<div class="col s12 m12 l9"> 
 	 <center><h4 class="modal-title" id="myModalLabel">{{card.title|safe}}</h4></center>      
-	 <center><img class="img-fluid" src="{% static 'uploads/' %}{{card.image}}" alt="Card image cap"></center>
-		<center><p id="modal_{{card.id}}" class="card-text">{{card.text|safe|escape}}</p></center>
+	 <center><img class="responsive-img" src="{% static 'uploads/' %}{{card.image}}" alt="Card image cap"></center>
+	<center><p id="modal_{{card.id}}" class="card-text">{{card.text|safe|escape}}</p></center>
         <center><p class="card-text" style="display: inline-block;"><small class="text-muted">Published at : {{card.publish}}</small></p></center>
         <button id="shareBtn" type="button" class="btn btn-fb"><i class="fa fa-facebook left"></i> Facebook </button>
 <script>
@@ -37,9 +38,24 @@ document.getElementById('shareBtn').onclick = function() {
 	<!-- right section end -->
 </div>
 <!-- main div end -->
-	
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.7&appId=709792979147317";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>	
  
-			 
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-80321000-1', 'auto');
+  ga('send', 'pageview');
+
+</script>			 
 
 {% endblock %}
 

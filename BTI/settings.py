@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'news',
-    'tinymce',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -86,7 +85,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql', 
         'NAME': 'django_bti',
         'USER': 'root',
-        'PASSWORD': '',
+        'PASSWORD': 'password4$',
         'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
         'PORT': '3306',
     }

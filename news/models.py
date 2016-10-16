@@ -66,18 +66,6 @@ class Slide(models.Model):
 	status = models.CharField(max_length=20, choices=STATUS)
 	
 
-class Card(models.Model):
-	section = models.ForeignKey(Section)
-	top = models.CharField(max_length=50, choices=TOP)
-	title = models.CharField(max_length=200)
-	url = models.CharField(max_length=200, unique=True)
-	intro_text = models.CharField(max_length=200)
-	text = models.TextField()
-	image = models.ImageField(upload_to = "card/")
-	background_color = models.CharField(max_length=50, choices=BACK)
-	font_color = models.CharField(max_length=50, choices=FONT)
-	publish = models.DateTimeField(default=datetime.now)
-	status = models.CharField(max_length=20, choices=STATUS)
 
 class Breaking(models.Model):
 	text = models.CharField(max_length=100)
@@ -120,6 +108,23 @@ class SmallCard(models.Model):
 	font_color = models.CharField(max_length=50, choices=FONT)
 	publish = models.DateTimeField(default=datetime.now)
 	status = models.CharField(max_length=20, choices=STATUS)
+
+
+class Card(models.Model):
+	section = models.ForeignKey(Section)
+	top = models.CharField(max_length=50, choices=TOP)
+	title = models.CharField(max_length=200)
+	url = models.CharField(max_length=200, unique=True)
+	intro_text = models.CharField(max_length=200)
+	text = models.TextField()
+	image = models.ImageField(upload_to = "card/")
+	background_color = models.CharField(max_length=50, choices=BACK)
+	font_color = models.CharField(max_length=50, choices=FONT)
+	publish = models.DateTimeField(default=datetime.now)
+	status = models.CharField(max_length=20, choices=STATUS)
+
+
+	
 class Advertisement(models.Model):
 	name = models.CharField(max_length=200)
 	image = models.ImageField(upload_to = "advertisement/")

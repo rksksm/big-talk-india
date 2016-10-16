@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
     <title>Big Talk India</title>
+    <!-- <script src="{% static "js/pace.min.js"%}"></script> -->
+    
     <meta name="description" content="Big Talk India - National News Portal" />
     <meta name="keywords" content="India, world, national, international, sport, entertainment news, bhopal, madhya pradesh" />
     <meta name="author" content="Rishabh K Sharma" />
@@ -14,13 +16,14 @@
     <link type="text/css" rel="stylesheet" href="{% static "css/materialize.min.css" %}"  media="screen,projection"/>
     <link rel="stylesheet" type="text/css" href="{% static "css/slick.css" %}"/>
     <link rel="stylesheet" type="text/css" href="{% static "css/slick-theme.css" %}"/>
+    <!-- <link rel="stylesheet" type="text/css" href="{% static "css/pace.css" %}"/> -->
     </head>
     <style type="text/css">
 
     @import url({% static "css/entypo.css" %});
   @font-face {
     font-family: rishabh;
-    src: url('{% static 'fonts/SAMARN.ttf' %}');
+    src: url('{% static 'fonts/SAMARN.TTF' %}');
   }
 
 
@@ -141,7 +144,7 @@ a {
 
 </style>
 
-    <body>
+    <body style="overflow-x: hidden;">
 
 <!--*****************************************************************************************************************************************************************************************SIDE NEV BAR******************************************************************************************************************************************************************************************-->
  
@@ -238,6 +241,12 @@ a {
         <script type="text/javascript" src="{% static "js/jquery-2.1.1.min.js" %}"></script>
         <script type="text/javascript" src="{% static "js/materialize.min.js" %}"></script>
         <script type="text/javascript" src="{% static "js/slick.min.js" %}"></script>
+          <script type="text/javascript">
+     $(document).ready(function(){
+      $('.carousel').carousel();
+      $('.carousel.carousel-slider').carousel({full_width: true});
+    });
+  </script>
         <script type="text/javascript">
       $(".button-collapse").sideNav();
       $('.collapsible').collapsible();
@@ -288,10 +297,87 @@ a {
     // instead of a settings object
   ]
 });
+      $('.yop').slick({
+        click: true,
+  dots: false,
+  infinite: true,
+  speed: 300,
+  autoplay: true,
+  autoplaySpeed: 2000,
+  slidesToShow: 2,
+  slidesToScroll: 1,
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2,
+        infinite: true,
+        dots: true
+      }
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    }
+    // You can unslick at a given breakpoint now by adding:
+    // settings: "unslick"
+    // instead of a settings object
+  ]
+});
+         $('.ads').slick({
+        click: true,
+  dots: false,
+  infinite: true,
+  speed: 300,
+  autoplay: true,
+  autoplaySpeed: 2000,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2,
+        infinite: true,
+        dots: true
+      }
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    }
+    // You can unslick at a given breakpoint now by adding:
+    // settings: "unslick"
+    // instead of a settings object
+  ]
+});
 $('.single-item').slick();
 
     });
   </script>
+
   <script type="text/javascript">
   $( window ).scroll(function() {
      if($(window).scrollTop() > 200){

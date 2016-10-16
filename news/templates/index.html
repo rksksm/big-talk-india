@@ -3,62 +3,69 @@
 
 {% block content %}
 
+  <script src="{% static "js/pace.min.js"%}"></script>
+  <link rel="stylesheet" type="text/css" href="{% static "css/pace.css" %}"/>
+
 <!-- main div start -->
 <div class="row">
-	<!-- left section start -->
-	<div class="col s12 m9 l9">
-	<div id="top-news" style="background-color: black ">
-		{% for i in card %}
-					{% if i.top == "Top - 1" %}
-						<div class="col s12 m4 l4" style="padding: 0px;">
-							<div class="card" onClick="document.location.href='http://www.bigtalkindia.com/news/{{i.url|safe|escape}}'"  style="color:{{i.font_color}};background-color:{{i.background_color}};height:400px;">
-								<div class="card-image">
-									<img style="height: 200px; width: 100%; " src="static/uploads/{{i.image}}">
-									
-								</div>
-								<span class="card-title" style="font-size: 16px;  "><b>{{i.title|safe|escape}}</b></span>
-								<div class="card-content" style="padding: 2px;">
-								  <p style="font-size: 13px;">
-										{{i.intro_text|safe|escape}}
-										<a style="color:  {{i.font_color}};">
-											<br>
-											<u style="font-size: 12px; ">Read more...</u>
-										</a>
-								  </p>
-								</div>
-							</div>
-						</div>
-					{% endif %}
-				{% endfor %}
 
-		{% for i in card %}
-					{% if i.top == "Top - 2" %}
-						<div class="col s12 m4 l4" style="padding: 0px;">
-							<div class="card" onClick="document.location.href='http://www.bigtalkindia.com/news/{{i.url|safe|escape}}'"  style="color:{{i.font_color}};background-color:{{i.background_color}};height:400px;">
-								<div class="card-image">
-									<img style="height: 200px; width: 100%; " src="static/uploads/{{i.image}}">
-									
-								</div>
-								<span class="card-title" style="font-size: 16px;  "><b>{{i.title|safe|escape}}</b></span>
-								<div class="card-content" style="padding: 2px;">
-								  <p style="font-size: 13px;">
-										{{i.intro_text|safe|escape}}
-										<a style="color:  {{i.font_color}};">
-											<br>
-											<u style="font-size: 12px; ">Read more...</u>
-										</a>
-								  </p>
-								</div>
-							</div>
-						</div>
-					{% endif %}
-				{% endfor %}
+  <!-- left section start -->
+  <div class="col s12 m9 l9">
 
+  <div id="top-news" style="background-color: black ">
+  <div class="col s12 m8 l8" style="padding: 0px;">
+  <div class="yop">
+    {% for i in card %}
+          {% if i.top == "Top - 1" %}
+            <div class="col s12 m4 l4" style="padding: 0px;">
+              <div class="card" onClick="document.location.href='http://www.bigtalkindia.com/news/{{i.url|safe|escape}}'"  style="color:{{i.font_color}};background-color:{{i.background_color}}; cursor: pointer; height:400px;">
+                <div class="card-image">
+                  <img style="height: 200px; width: 100%; " src="static/uploads/{{i.image}}">
+                  
+                </div>
+                <span class="card-title" style="font-size: 18px;  "><b>{{i.title|safe|escape}}</b></span>
+                <div class="card-content" style="padding: 2px;">
+                  <p style="font-size: 13px;">
+                    {{i.intro_text|safe|escape}}
+                    <a style="color:  {{i.font_color}};">
+                      <br>
+                      <u style="font-size: 12px; ">Read more...</u>
+                    </a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
 
-	{% for i in card %}
-					{% if i.top == "Top - 3" %}
-						  <div class="col s12 m4 l4" style="padding: 0px" >
-    <div class="card horizontal" onClick="document.location.href='http://www.bigtalkindia.com/news/{{i.url|safe|escape}}'" style="color:{{i.font_color}}; background-color: {{i.background_color}}; height: 100px; ">
+    {% for i in card %}
+          {% if i.top == "Top - 2" %}
+            <div class="col s12 m4 l4" style="padding: 0px;">
+              <div class="card" onClick="document.location.href='http://www.bigtalkindia.com/news/{{i.url|safe|escape}}'"  style="color:{{i.font_color}};background-color:{{i.background_color}}; cursor: pointer; height:400px;">
+                <div class="card-image">
+                  <img style="height: 200px; width: 100%; " src="static/uploads/{{i.image}}">
+                  
+                </div>
+                <span class="card-title" style="font-size: 18px;  "><b>{{i.title|safe|escape}}</b></span>
+                <div class="card-content" style="padding: 2px;">
+                  <p style="font-size: 13px;">
+                    {{i.intro_text|safe|escape}}
+                    <a style="color:  {{i.font_color}};">
+                      <br>
+                      <u style="font-size: 12px; ">Read more...</u>
+                    </a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+</div>
+</div>
+  {% for i in card %}
+          {% if i.top == "Top - 3" %}
+              <div class="col s12 m4 l4" style="padding: 0px" >
+    <div class="card horizontal" onClick="document.location.href='http://www.bigtalkindia.com/news/{{i.url|safe|escape}}'" style="color:{{i.font_color}}; background-color: {{i.background_color}}; cursor: pointer; height: 100px; ">
       <div class="card-image">
         <img style="height: 100px; width: 100px;" src="static/uploads/{{i.image}}">
       </div>
@@ -70,12 +77,12 @@
       </div>
     </div>
   </div>
-					{% endif %}
-				{% endfor %}
-	{% for i in card %}
-					{% if i.top == "Top - 4" %}
-						  <div class="col s12 m4 l4"  style="padding: 0px;margin-top: -23px;"">
-    <div class="card horizontal" onClick="document.location.href='http://www.bigtalkindia.com/news/{{i.url|safe|escape}}'" style="color:{{i.font_color}}; background-color: {{i.background_color}}; height: 100px; ">
+          {% endif %}
+        {% endfor %}
+  {% for i in card %}
+          {% if i.top == "Top - 4" %}
+              <div class="col s12 m4 l4"  style="padding: 0px;margin-top: -23px;"">
+    <div class="card horizontal" onClick="document.location.href='http://www.bigtalkindia.com/news/{{i.url|safe|escape}}'" style="color:{{i.font_color}}; background-color: {{i.background_color}}; cursor: pointer; height: 100px; ">
       <div class="card-image">
         <img style="height: 100px; width: 100px;" src="static/uploads/{{i.image}}">
       </div>
@@ -87,11 +94,11 @@
       </div>
     </div>
   </div>
-					{% endif %}
-				{% endfor %}	{% for i in card %}
-					{% if i.top == "Top - 5" %}
-						  <div class="col s12 m4 l4"  style="padding: 0px;margin-top: -23px;"">
-    <div class="card horizontal" onClick="document.location.href='http://www.bigtalkindia.com/news/{{i.url|safe|escape}}'" style="color:{{i.font_color}}; background-color: {{i.background_color}}; height: 100px; ">
+          {% endif %}
+        {% endfor %}  {% for i in card %}
+          {% if i.top == "Top - 5" %}
+              <div class="col s12 m4 l4"  style="padding: 0px;margin-top: -23px;"">
+    <div class="card horizontal" onClick="document.location.href='http://www.bigtalkindia.com/news/{{i.url|safe|escape}}'" style="color:{{i.font_color}}; background-color: {{i.background_color}}; cursor: pointer; height: 100px; ">
       <div class="card-image">
         <img style="height: 100px; width: 100px;" src="static/uploads/{{i.image}}">
       </div>
@@ -103,12 +110,12 @@
       </div>
     </div>
   </div>
-					{% endif %}
-				{% endfor %}
-	{% for i in card %}
-					{% if i.top == "Top - 6" %}
-						  <div class="col s12 m4 l4"  onClick="document.location.href='http://www.bigtalkindia.com/news/{{i.url|safe|escape}}'"  style="padding: 0px;margin-top: -21px;"">
-    <div class="card horizontal" style="color:{{i.font_color}}; background-color: {{i.background_color}}; height: 100px; ">
+          {% endif %}
+        {% endfor %}
+  {% for i in card %}
+          {% if i.top == "Top - 6" %}
+              <div class="col s12 m4 l4"  onClick="document.location.href='http://www.bigtalkindia.com/news/{{i.url|safe|escape}}'"  style="padding: 0px;margin-top: -21px;"">
+    <div class="card horizontal" style="color:{{i.font_color}}; background-color: {{i.background_color}}; cursor: pointer; height: 100px; ">
       <div class="card-image">
         <img style="height: 100px; width: 100px;" src="static/uploads/{{i.image}}">
       </div>
@@ -120,59 +127,102 @@
       </div>
     </div>
   </div>
-					{% endif %}
-				{% endfor %}
-	</div>
+          {% endif %}
+                  
+        {% endfor %}
+
+  </div>
 
 
 
 
 
-	{% for j in section %}
-		<div class="divider"></div>
-		<div id="{{j.title}}" class="section">
-			<h5>{{j.title}}</h5>
-			<div class="your">
-				{% for i in card %}
-					{% if i.section_id == j.id and i.top == "Normal" %}
-						<div class="col s4 m4 l4">
-							<div class="card" onClick="document.location.href='http://www.bigtalkindia.com/news/{{i.url|safe|escape}}'" style="color:{{i.font_color}};background-color:{{i.background_color}};height:400px;">
-								<div class="card-image">
-									<img style="height: 200px; width: 100%; " src="static/uploads/{{i.image}}">
-									
-								</div>
-								<span class="card-title" style="font-size: 16px;  "><b>{{i.title|safe|escape}}</b></span>
-								<div class="card-content" style="padding: 2px;">
-								  <p style="font-size: 13px;">
-										{{i.intro_text|safe|escape}}
-										<a style="color:  {{i.font_color}};">
-											<br>
-											<u style="font-size: 12px; ">Read more...</u>
-										</a>
-								  </p>
-								</div>
-							</div>
-						</div>
-					{% endif %}
-				{% endfor %}
-			</div>
-		</div>
-	{% endfor %}
-	</div>
-	<!-- left section end -->
-	
+  {% for j in section %}
+    <div class="divider"></div>
+    <div id="{{j.title}}" class="section">
+      <h5>{{j.title}}</h5>
+      <div class="your">
+        {% for i in card %}
+          {% if i.section_id == j.id and i.top == "Normal" %}
+            <div class="col s4 m4 l4">
+              <div class="card" onClick="document.location.href='http://www.bigtalkindia.com/news/{{i.url|safe|escape}}'" style="color:{{i.font_color}};background-color:{{i.background_color}}; cursor: pointer; height:400px;">
+                <div class="card-image">
+                  <img style="height: 200px; width: 100%; " src="static/uploads/{{i.image}}">
+                  
+                </div>
+                <span class="card-title" style="font-size: 18px;  "><b>{{i.title|safe|escape}}</b></span>
+                <div class="card-content" style="padding: 2px;">
+                  <p style="font-size: 13px;">
+                    {{i.intro_text|safe|escape}}
+                    <a style="color:  {{i.font_color}};">
+                      <br>
+                      <u style="font-size: 12px; ">Read more...</u>
+                    </a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  {% endfor %}
+  </div>
+  <!-- left section end -->
 
-	<!-- right section start -->
-	<div class="col s12 m3 l3">
-		<div class="col s12 m12 l12" style="height: 400px; background-color: #f3f3f3; border: solid 1px black; " > <center>Advertisement</center>    </div><br>
-	</div>
-	<!-- right section end -->
+    
+
+  <!-- right section start -->
+  <div class="col s12 m3 l3">
+    
+    <div class="ads">
+    	{% for ad in adv %}
+    <div class="col s12 m12 l12"> <img class="responsive-img" src="static/uploads/{{ad.image}}"></div>
+    	{% endfor%}
+  	</div>
+    <br>
+      
+          
+    <div class="col s12 m4 l4" style="padding: 0px" >
+    {% for j in smalls %}
+      <br><h5>{{j.title}}</h5>
+      {% for i in small %}
+        {% if i.section_id == j.id %}
+          
+          <div class="card horizontal" onClick="document.location.href='http://www.bigtalkindia.com/news/{{i.url|safe|escape}}'" style="color:{{i.font_color}}; background-color: {{i.background_color}}; cursor: pointer; height: 100px; width: 308px; ">
+          <div class="card-image">
+            <img style="height: 100px; width: 100px;" src="static/uploads/{{i.image}}">
+          </div>
+          <div class="card-stacked">
+            <div class="card-content" style="padding: 0px; margin-left: 10px; ">
+              <p><span style="font-size: 14px;"><b>{{i.title}}</b></span>
+              <a style="color:  {{i.font_color}};"><br><u style="font-size: 12px; ">Read more...</u></a></p>
+            </div>
+          </div>
+          </div>
+          
+        {% endif %}
+      {% endfor %}
+
+    {% endfor %}
+    </div>
+  <!-- right section end -->
 </div>
 <!-- main div end -->
-	
- 
-			 
+  
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-80321000-1', 'auto');
+  ga('send', 'pageview');
+
+</script> 
+       
 
 {% endblock %}
+
 
 

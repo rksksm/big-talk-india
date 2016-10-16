@@ -18,8 +18,10 @@ def my_custom_sql():
 
 
 def index(request):
-
+	advertisement = Advertisement.objects.order_by('-publish').filter(status='Active')
 	section = Section.objects.order_by('-publish').filter(status='Active')
+	smallcard = SmallCard.objects.order_by('-publish').filter(status='Active')
+	smallsec = SmallSection.objects.order_by('-publish').filter(status='Active')
 	slide = Slide.objects.order_by('-publish').filter(status='Active')
 	card = Card.objects.filter(status='Active').order_by('-publish')
 	breaking = Breaking.objects.order_by('-publish').filter(status='Active')
@@ -27,7 +29,7 @@ def index(request):
 	news_slider=[]
 	for i in breaking:
 		news_slider.append(i.text+"  "*15)
-	context = {'card':card, 'slide':slide, 'breaking':" ***** ".join(news_slider), 'section':section, "lent": [],}
+	context = {'card':card, 'slide':slide, 'breaking':" ***** ".join(news_slider), 'section':section, "lent": [], "small":smallcard,"smalls":smallsec,"adv" : advertisement}
 	context['lent'] = range(0, 1)
 	return render(request, 'index.html', context)
 
@@ -76,12 +78,15 @@ def search(request, pattern):
 def share(request, news_url):
 	try:
 		news_slider=[]
+		advertisement = Advertisement.objects.order_by('-publish').filter(status='Active')
+		smallcard = SmallCard.objects.order_by('-publish').filter(status='Active')
+		smallsec = SmallSection.objects.order_by('-publish').filter(status='Active')
 		section = Section.objects.order_by('-publish').filter(status='Active')
 		breaking = Breaking.objects.order_by('-publish').filter(status='Active')
 		for i in breaking:
 			news_slider.append(i.text+"  "*15)
 		card = Card.objects.get(url = news_url)
-		context = {'card': card, 'breaking':" ***** ".join(news_slider), 'section':section,}
+		context = {'card': card, 'breaking':" ***** ".join(news_slider), 'section':section, "small":smallcard,"smalls":smallsec,"adv" : advertisement}
 	except Card.DoesNotExist:
 		raise Http404("News Does not Exist")
 	return render(request, 'shareing.html', context )
@@ -90,13 +95,17 @@ def share(request, news_url):
 def section(request, section_title, section_id):
 	try:
 		news_slider=[]
+		advertisement = Advertisement.objects.order_by('-publish').filter(status='Active')
+		smallcard = SmallCard.objects.order_by('-publish').filter(status='Active')
+		smallsec = SmallSection.objects.order_by('-publish').filter(status='Active')
+
 		section = Section.objects.order_by('-publish').filter(status='Active')
 		this_section = Section.objects.order_by('-publish').filter(status='Active').filter(id = section_id)
 		breaking = Breaking.objects.order_by('-publish').filter(status='Active')
 		for i in breaking:
 			news_slider.append(i.text+"  "*15)
 		card = Card.objects.filter(section = section_id).filter(status='Active').order_by('-publish')
-		context = {'card': card, 'breaking':" ***** ".join(news_slider), 'section':section, 'this_section':this_section}
+		context = {'card': card, 'breaking':" ***** ".join(news_slider), 'section':section, 'this_section':this_section, "small":smallcard,"smalls":smallsec,"adv" : advertisement}
 	except Card.DoesNotExist:
 		raise Http404("OOPS, I M LOST")
 	return render(request, 'section.html', context )
