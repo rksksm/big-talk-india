@@ -20,6 +20,7 @@ PROJECT_ROOT = os.path.realpath(os.path.dirname(__file__))
 MEDIA_ROOT = 'news/static/uploads/'
 print MEDIA_ROOT
 MEDIA_URL = '/media/'
+STATIC_ROOT = ''
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
